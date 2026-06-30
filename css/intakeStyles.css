@@ -1,0 +1,46 @@
+h1 
+{
+    color:blue;
+}
+
+.title
+{
+    color:green;
+}
+
+body 
+{
+    font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    background-color:rgb(223, 223, 239);
+}
+
+a{
+    text-decoration: none;
+    color:black;
+}
+
+.chapterButton 
+{
+    font-size:18px;
+    font-style:italic;
+}
+
+.navButton 
+{
+    background-color: rgb(205, 205, 220);
+    font-size:22px;
+}
+
+.row 
+{
+    display:flex;
+}
+
+
+.navButton
+{
+    border-color:black;
+    border-right-width:2px;
+    border-right:solid;
+
+}

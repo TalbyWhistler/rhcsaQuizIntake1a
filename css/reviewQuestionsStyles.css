@@ -1,0 +1,14 @@
+
+.row 
+{
+    display:flex;
+}
+
+
+.navButton
+{
+    border-color:black;
+    border-right-width:2px;
+    border-right:solid;
+
+}
