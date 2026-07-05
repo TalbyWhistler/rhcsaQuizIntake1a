@@ -6,6 +6,8 @@
     $exerciseOption=createElement('div','exerciseButton','navButton',"Run Exercises");
     $memoryOption=createElement('div','tableButton','navButton','Memory Table Quizes');
     $welcome=createElement('div','welcomeButton','navButton','Welcome');
+    $labInOption=createElement('div','chapterLabButton','navButton','Chapter Labs');
+
     $navRowContents=
     "
      <a href='index.php'>$welcome</a>
@@ -13,6 +15,7 @@
       <a href='chapters_review.php'>$reviewQuestionOption</a> 
       <a href='exercises.php'>$exerciseOption</a>
       <a href='quiz_in.php'>$memoryOption</a>
+      <a href='labIn.php'>$labInOption</a>
     ";
     $navRow=createElement("div","navRow","row",$navRowContents);
     echo $navRow;
