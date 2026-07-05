@@ -1,0 +1,8 @@
+Jul 1, 2026
+*Know this already - Indicate which chapters are filled in(w/ subheadings)
+*Review questions intake - ""	"" 	""
+Chapter Review=subheadings on chapter buttons?
+*Memory Tables Input - subheadings on the buttons(maybe) order the button output (or db query)
+*Run Exercises, order buttons by figure number(chapter)
+Step No step text input looks a bit weird, bigger step text (wider)
+Refresh list on step input**,also 	remove steps?
