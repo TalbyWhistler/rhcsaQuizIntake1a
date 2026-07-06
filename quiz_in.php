@@ -7,7 +7,7 @@
     <link rel='stylesheet' href='css/intakeStyles.css'/>
 </head>
 <body>
-    <?php include 'php/rhIntake_frontpage.php' ?>
+     <?php include 'php/header.php' ?>
         <?php include 'php/navbar.php' ?>
     <?php include 'php/memory_quiz_frontend.php' ?>
 </body>

@@ -35,7 +35,7 @@ function knowAlreadyPage()
     $br='</br>';
     $scriptLink='<script src="js/knowalready_scripts.js"></script>';
     $questionAreaLabel=ce('label','questionAreaLabel','label','Question:');
-    $title=ce('h1','knowAlreadyTitle','title','Do I know this already?');
+    $title=ce('h3','knowAlreadyTitle','subtitle','Do I know this already?');
     $titleDiv=ce('div','knowAlreadyTitleDiv','titleDiv',$title);
 
     $subtitle="Question and answer intake for the know already quizzes.";

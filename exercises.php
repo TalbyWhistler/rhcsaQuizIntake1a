@@ -7,7 +7,7 @@
     <link rel='stylesheet' type='text/css' href='css/intakeStyles.css'/>
 </head>
 <body>
-        <?php include 'php/rhIntake_frontpage.php' ?>
+        <?php include 'php/header.php' ?>
         <?php include 'php/navbar.php' ?>
         <?php include 'php/exercises_frontend.php' ?>
 </body>
