@@ -23,7 +23,7 @@
     $metadataInputPanel=createElement('div','metadataInputPanel','inputPanel',$metadataInputPanelContents);
     $scriptLink='<script src="js/memoryQuizScripts.js"></script>';
     
-    $quizPageHeadline=createElement('h1','quizPageTitle','title','Memory Tables Input');
+    $quizPageHeadline=createElement('h3','quizPageTitle','subtitle','Memory Tables Input');
 
     $availableFiguresOutputArea=createElement('p','figuresOutputArea','outputArea','');
 

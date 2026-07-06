@@ -1,6 +1,6 @@
 <?php 
         include_once 'tools.php';
-        $title=createElement('h1','ceInTitle','title',"Chapter Lab Data Input");
+        $title=createElement('h3','ceInTitle','subtitle',"Chapter Lab Data Input");
         $scriptLink=
         "
             <script src='js/chapterEndScripts.js'></script>

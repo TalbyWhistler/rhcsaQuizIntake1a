@@ -12,7 +12,7 @@
                 $buttons=$buttons.
                 '<button class="chapterButton" id="chapterButton'.$i.'" onclick="chapterButton('.$i.')">'.$i.'</button>';
             };
-        $title=createElement("h1","rqIntakeTitle","title","Review Questions Intake");
+        $title=createElement("h3","rqIntakeTitle","subtitle","Review Questions Intake");
 
         $br='</br>';
         $questionNumber=

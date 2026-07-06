@@ -58,7 +58,7 @@
 
     $scriptLink='<script src="js/exercisesScripts.js"></script>';
     //echo '<h1>excercises front-end';
-    $headLine=createElement('h1','exercisesTitle','title','Exercises Data Input');
+    $headLine=createElement('h3','exercisesTitle','subtitle','Exercises Data Input');
 
     $dataSoFar=createElement('p','dataSoFarOutputArea','outputArea','');
     $dataSoFarContainer=createElement('div','dataSoFarContainer','outputContainer',$dataSoFar);
