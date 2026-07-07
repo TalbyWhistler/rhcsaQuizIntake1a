@@ -1,9 +1,17 @@
 <?php 
         include 'chapterend_operations.php';
+        include 'check_login.php';
+      
         $rawInput=file_get_contents('php://input');
         $jsonInput=json_decode($rawInput,true);
         $function=$jsonInput["function"];
         $outputMessage="No function in chapterend activated.";
+        $isLoggedIn=checkIfLoggedInBoolean();
+        if(!$isLoggedIn)
+            {
+                $function='';
+                $outputMessage='Requires admin user.';
+            }
         switch($function)
         {
             case("submitMetadata"):
@@ -45,6 +53,11 @@
                     $chapter=$params["chapter"];
                     $stepNumber=$params["stepNumber"];
                     $outputMessage=deleteListStep($chapter,$stepNumber);
+                    break;
+                }
+            case("guest"):
+                {
+                    $outputMessage="Requires admin user.";
                     break;
                 }
         }
