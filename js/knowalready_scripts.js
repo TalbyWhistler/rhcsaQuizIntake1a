@@ -35,6 +35,7 @@ function handleKnowAlreadySubmit()
 {
     console.log("Handle knowalready submit");
     let chapter=byId("chapterInput").value; 
+   
     let questionNumber=byId("questionNumberInput").value;
     let question=byId("questionArea").value;
     let a=byId("inputA").value;

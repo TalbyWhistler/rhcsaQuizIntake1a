@@ -1,10 +1,20 @@
 <?php 
     include 'knowalready_db_operations.php';
+   // include_once 'check_login.php';
 
     $rawInput=file_get_contents('php://input');
     $jsonInput=json_decode($rawInput,true);
     $inputFunction=$jsonInput["function"];
     $outputMessage='';
+
+   /*
+     $isLoggedIn=checkIfLoggedInBoolean();
+        if($isLoggedIn==false && $inputFunction!="fetchRecordsList" && $inputFunction !="loadFigureDataAndMetadata")
+            {
+                $inputFunction='';
+                $outputMessage='Requires admin user.';
+            }
+    */
     switch($inputFunction)
     {
         case("testo"):
