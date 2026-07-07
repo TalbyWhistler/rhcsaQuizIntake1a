@@ -45,8 +45,8 @@ function checkIfLoggedIn()
     $cookieUsername=$_COOKIE["linuxLab"]??'';
     $jsonValues=json_decode($cookieValues,true);
   //  return json_encode($jsonValues);
-    $loggedInUser=$jsonValues["username"];
-    $loggedInToken=$jsonValues["token"];
+    $loggedInUser=$jsonValues["username"]??'';
+    $loggedInToken=$jsonValues["token"]??'';
   //  return json_encode($jsonValues["username"]);
    // $cookieUsername=$_COOKIE["linuxLab"];
    // $cookieToken=$_COOKIE["linuxLab"]["token"]??'';
