@@ -1,6 +1,6 @@
 <?php 
         include 'chapterend_operations.php';
-        include 'check_login.php';
+        include_once 'check_login.php';
       
         $rawInput=file_get_contents('php://input');
         $jsonInput=json_decode($rawInput,true);

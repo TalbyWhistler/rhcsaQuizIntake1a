@@ -4,6 +4,7 @@
         $jsonInput=json_decode($rawInput,true);
         $function=$jsonInput["function"];
         $outputMessage='No function activated in intake control';
+        $isLoggedIn=
         switch($function)
         {
             case("testo"):
