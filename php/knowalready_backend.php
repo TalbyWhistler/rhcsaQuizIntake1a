@@ -7,7 +7,7 @@
     $inputFunction=$jsonInput["function"];
     $outputMessage='';
 
-   
+    
      $isLoggedIn=checkIfLoggedInBoolean();
         if($isLoggedIn==false && $inputFunction!="fetchRecordsList" && $inputFunction !="loadFigureDataAndMetadata")
             {

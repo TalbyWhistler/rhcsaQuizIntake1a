@@ -1,9 +1,21 @@
 <?php 
             include 'memory_quiz_operations.php';
+            include_once 'check_login.php';
             $rawInput=file_get_contents('php://input');
             $jsonInput=json_decode($rawInput,true);
             $function=$jsonInput["function"];
             $outputMessage='No function activated';
+
+            $isLoggedIn=checkIfLoggedInBoolean();
+            if($isLoggedIn==false && $function!="fetchRecordsList" )
+            {
+                $function='';
+                $outputMessage='Requires admin user.';
+            }
+    
+             
+
+
             switch($function)
             {
                 case("testo"):

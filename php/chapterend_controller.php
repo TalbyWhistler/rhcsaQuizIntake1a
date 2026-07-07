@@ -7,7 +7,7 @@
         $function=$jsonInput["function"];
         $outputMessage="No function in chapterend activated.";
         $isLoggedIn=checkIfLoggedInBoolean();
-        if(!$isLoggedIn)
+        if(!$isLoggedIn && $function!="fetchMetadataAndData")
             {
                 $function='';
                 $outputMessage='Requires admin user.';

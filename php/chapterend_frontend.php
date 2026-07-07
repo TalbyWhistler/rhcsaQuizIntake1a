@@ -47,7 +47,7 @@
         $metaInputPanel=createElement('div','metaInputPanel','inputPanel',$metaInputPanelContents);
 
         $buttonAreaContents='';
-        for ($i=1;$i<=24;$i++)
+        for ($i=1;$i<=25;$i++)
             {
                 $buttonAreaContents=$buttonAreaContents.
                 "<button id='chapterButton$i' class='chapterButton' onclick='handleChapterButton($i)'>$i</button>";
