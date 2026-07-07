@@ -71,7 +71,7 @@ function handleMetaSubmit()
     let chapterTitleInput=document.getElementById(metaChapterTitleInputId).value;
     let labIntro=document.getElementById(labIntroInputId).value; 
     console.log("chapter",chapterInput,"chapterTitle",chapterTitleInput,"labIntro",labIntro);
-    if (chapterInput.length<1 || chapterTitleInput.length<1 || Number(chapterInput) < 1 || Number(chapterInput) > 24)
+    if (chapterInput.length<1 || chapterTitleInput.length<1 || Number(chapterInput) < 1 || Number(chapterInput) > 25)
     {
         writeToMetaStatus("Invalid input");
         setTimeout(writeToMetaStatus,3000,"Ready");

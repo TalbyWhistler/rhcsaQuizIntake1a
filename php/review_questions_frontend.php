@@ -7,7 +7,7 @@
             <script src="js/rqScripts.js"></script>
         ';
         $buttons='';
-        for($i=1;$i<=24;$i++)
+        for($i=1;$i<=25;$i++)
             {
                 $buttons=$buttons.
                 '<button class="chapterButton" id="chapterButton'.$i.'" onclick="chapterButton('.$i.')">'.$i.'</button>';

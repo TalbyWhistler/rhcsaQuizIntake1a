@@ -20,6 +20,8 @@
 
         $loggedInLabel=createElement("label","loginStatusLabel","statusIndicatorLabel","You are ");
         $loggedInStatusIndicator=createElement("label","loginStatusIndicator","statusIndicator","");
+
+        $logoutButton=createButton("logoutSubmit","submitButton","handleLogoutSubmit","Log Out");
         $loginPanelContents=
         "
             <label><strong>Login</strong></label>
@@ -33,12 +35,15 @@
             $reactionLabel
             </br>
             $loggedInLabel$loggedInStatusIndicator
+            </br>
+            $logoutButton
         ";
         $loginPanel=createElement('div','loginPanel','inputPanel',$loginPanelContents);
         $pageContainerContents=
         "
             $subTitle
             $blurb
+            $scriptLink
             <p>But first, who are you and where are you going?</p>
             $loginPanel
         ";

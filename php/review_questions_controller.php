@@ -1,9 +1,21 @@
 <?php 
         include 'review_questions_operations.php';
+         include_once 'check_login.php';
+
         $rawInput=file_get_contents('php://input');
         $jsonInput=json_decode($rawInput,true);
         $function=$jsonInput["function"];
         $outputMessage='No function activated in the controller';
+
+        
+         $isLoggedIn=checkIfLoggedInBoolean();
+        if($isLoggedIn==false)
+            {
+                $function='';
+                $outputMessage='Requires admin user.';
+            }
+
+
         switch($function)
         {
             case("testo"):
