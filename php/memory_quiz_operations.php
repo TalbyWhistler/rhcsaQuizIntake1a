@@ -2,13 +2,14 @@
 function submitMetadata($figure,$chapter,$description,$value0Label,$value1Label,$value2Label,$value3Label)
 {
     include 'db_connect.php';
-    $stmt=$conn->prepare("delete from memoryMeta where figure=?");
+    $stmt=$conn->prepare("delete from memorymeta where figure=?");
     $stmt->bind_param("s",$figure);
     $stmt->execute();
 
 
     $stmt=$conn->prepare("insert into memorymeta(figure,chapter,description,value0Label,value1Label,value2Label,value3Label) values (?,?,?,?,?,?,?)");
     $stmt->bind_param("sisssss",$figure,$chapter,$description,$value0Label,$value1Label,$value2Label,$value3Label);
+   
     $outputMessage='';
     if ($stmt->execute())
         {
@@ -25,7 +26,7 @@ function submitFigureValues($figure,$value0,$value1,$value2,$value3)
 {
     include 'db_connect.php';
     $outputMessage='';
-    $stmt=$conn->prepare("insert into memoryEntries(figure,value0,value1,value2,value3) values (?,?,?,?,?)");
+    $stmt=$conn->prepare("insert into memoryentries(figure,value0,value1,value2,value3) values (?,?,?,?,?)");
     $stmt->bind_param("sssss",$figure,$value0,$value1,$value2,$value3);
     if ($stmt->execute())
         {
@@ -43,7 +44,7 @@ function submitFigureValues($figure,$value0,$value1,$value2,$value3)
 function deleteEntry($figure,$uuid)
 {
     include 'db_connect.php';
-    $stmt=$conn->prepare("delete from memoryEntries where figure = ? and uuid=?");
+    $stmt=$conn->prepare("delete from memoryentries where figure = ? and uuid=?");
     $stmt->bind_param("si",$figure,$uuid);
     if ($stmt->execute())
         {
@@ -63,7 +64,7 @@ function fetchDataAndMetadata($figure)
     $dataArray=[];
     
     //get metadata 
-    $stmt=$conn->prepare("select * from memoryMeta where figure = ?");
+    $stmt=$conn->prepare("select * from memorymeta where figure = ?");
     $stmt->bind_param("s",$figure);
     if ($stmt->execute())
         {
@@ -91,7 +92,7 @@ function fetchDataAndMetadata($figure)
         }
 
     // get data 
-    $stmt=$conn->prepare("select * from memoryEntries where figure = ?");
+    $stmt=$conn->prepare("select * from memoryentries where figure = ?");
     $stmt->bind_param("s",$figure);
     if ($stmt->execute())
         {
