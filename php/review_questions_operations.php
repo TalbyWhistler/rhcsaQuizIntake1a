@@ -55,9 +55,8 @@
         include 'db_connect.php';
         $stmt=$conn->prepare("delete from reviewquestions where chapter=? and questionNo=?");
         $stmt->bind_param("ii",$chapter,$question);
-        ///////
-        $stmt->execute();
-        ///////
+	/////
+	$stmt->execute()
         
         $stmt=$conn->prepare("insert into reviewquestions (chapter,questionNo,questionText) values(?,?,?)");
         $stmt->bind_param("iis",$chapter,$question,$questionText);
@@ -77,7 +76,9 @@
         include 'db_connect.php';
         $stmt=$conn->prepare("delete from reviewanswers where chapter=? and questionNo=?");
         $stmt->bind_param("ii",$chapter,$question);
-        $stmt->execute();
+	//////
+	$stmt->execute()
+
         $stmt=$conn->prepare("insert into reviewanswers (chapter,questionNo,answerText) values(?,?,?)");
         $stmt->bind_param("iis",$chapter,$question,$answerText);
         if ($stmt->execute())
