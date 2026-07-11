@@ -49,7 +49,65 @@ function inputAnswerData($chapter,$questionNumber,$answerLetter,$answer)
     return $returnMessage;
 }
 
+function fetchQuestionsByChapter($chapter)
+{
+    include 'db_connect.php';
+    $outputMessage='fetch questions by chapter operations is working';
+    $outputArray=[];
+    $questionsArray=[];
+    $answersArray=[];
+    $stmt=$conn->prepare("select * from questions where chapter=? order by questionNumber asc");
+    $stmt->bind_param("i",$chapter);
+    if ($stmt->execute())
+        {
+            $result=$stmt->get_result();
+            while ($row=$result->fetch_assoc())
+                {
+                    $questionNumber=$row["questionNumber"];
+                    $questionText=$row["questionText"];
+                    $a=$row["a"];
+                    $b=$row["b"];
+                    $c=$row["c"];
+                    $d=$row["d"];
+                    $hasTwoAnswers=$row["hasTwoAnswers"]??'';
+                    $unitArray=['questionNumber'=>$questionNumber,'questionText'=>$questionText,'a'=>$a,'b'=>$b,'c'=>$c,'d'=>$d,'hasTwoAnswers'=>$hasTwoAnswers];
+                    array_push($questionsArray,$unitArray);
+                }
+            $stmt=$conn->prepare("select * from answers where chapter=?  order by questionNumber asc;");
+            $stmt->bind_param("i",$chapter);
+            if ($stmt->execute())
+                {
+                    $result=$stmt->get_result();
+                    while ($row=$result->fetch_assoc())
+                        {
+                            $questionNumber=$row["questionNumber"];
+                            $answerLetter=$row["answerLetter"];
+                            $answer=$row["answer"];
+                            $secondAnswer=$row["secondAnswer"]??'';
+                            $unitArray=['questionNumber'=>$questionNumber,'answerLetter'=>$answerLetter,'answer'=>$answer,'secondAnswer'=>$secondAnswer];
+                            array_push($answersArray,$unitArray);
+                        }
+                }
+                else 
+                    {
+                        // no execute
+                    }
+        }
+        else 
+            {
+                // no execute
+            }
+    $outputArray=['questions'=>$questionsArray,'answers'=>$answersArray];
+    return $outputArray;
+    
+}
 
-
+function fetchMissing($chapter)
+{
+    $outputMessage='Fetch missing operations is working';
+    // may not be required
+    return $outputMessage;
+    /// must get an array of missing questions and answers 
+}
 
 ?>

@@ -1,3 +1,7 @@
+
+
+let activeChapter=0;
+
 function knowAlreadyInit()
 {
     console.log("know already init");
@@ -165,6 +169,93 @@ function callBackendKA(inputFunction,parameters,callback)
     .then(data=>callback(data));
 }
 
+function handleReaderChapterButton(chapter)
+{
+    console.log('Reader button',chapter);
+    writeToReaderChapterIndicator(chapter);
+    callBackendKA('fetchQuestionsByChapter',{'chapter':chapter},readerPrint);
+}
+
+function readerPrint(data)
+{
+    
+    console.log("Question data",data["questions"]);
+   console.log("Question Length",data["questions"].length);
+   console.log("Answer data length",data["answers"].length);
+   /*
+   if (data["questions"].length<10 || data["answers"].length<10)
+   {
+        fetchMissing();
+     //   return;
+   }
+     */
+   
+
+    // console.log("Answer data",data["answers"]);
+   let questionOut='';
+   for (let i=0;i<10;i++)
+   {
+        if(!data["questions"][i])
+        {
+            console.log('missing data detected');
+            continue;
+        }
+        console.log(data["questions"][i]['questionNumber']);
+        let questionNumber=data["questions"][i]['questionNumber'];
+        let questionText=data["questions"][i]['questionText'];
+        let a=data["questions"][i]['a'];
+        let b=data["questions"][i]['b'];
+        let c=data["questions"][i]['c'];
+        let d=data["questions"][i]['d'];
+        let hasSecond=data["questions"][i]['hasTwoAnswers']==1?'True':'False';
+        if (!data["answers"][i])
+        {
+            console.log("missing data detected");
+            continue;
+        }
+        let answerLetter=data["answers"][i]['answerLetter'];
+        let answerText=data["answers"][i]['answer'];
+        let secondAnswer=data["answers"][i]['secondAnswer'];
+        questionOut+=
+        `
+            <strong>${questionNumber}. ${questionText}</strong>
+            </br>
+            a: ${a}
+            </br>
+            b: ${b}
+            </br>
+            c: ${c}
+            </br>
+            d: ${d}
+            </br>
+            Has two responses: ${hasSecond}
+            </br>
+            <strong><label>Response:</label></strong>${answerLetter}
+            </br>
+             <i>${answerText}</i>
+            </br>
+           <strong> <label>Second response</strong>(if any):</label>${secondAnswer}
+            </br>
+            </br>
+        `;
+        
+   }
+  // console.log(questionOut);
+   document.getElementById("readerQAndAOutput").innerHTML=questionOut;
+    
+    //document.getElementById("readerQAndAOutput").innerHTML=qAndAOutput;
+    // document.getElementById("readerQAndAOutput").innerHTML=qAndAOutput;
+}
+
+function fetchMissing()
+{
+    let chapter=document.getElementById("chapterIndicator").innerHTML;
+    callBackendKA("fetchMissing",{'chapter':chapter},console.log);
+}
 
 
+function writeToReaderChapterIndicator(message)
+{
+    document.getElementById("chapterIndicator").innerHTML=message;
+}
 knowAlreadyInit();

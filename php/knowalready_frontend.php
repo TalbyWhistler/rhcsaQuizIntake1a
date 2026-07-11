@@ -138,7 +138,30 @@ function knowAlreadyPage()
         .$questionPanel
         .$answerPanel;
     $pageDiv=ce('div','knowAlreadyPageDiv','pageDiv',$pageContents);
-    return $pageDiv;
+    $subHeader=ce('h3','readerSubheader','subtitle','Question Reader');
+    $readerStatus=ce('p','readerStatusIndicator','statusIndicator','Ready');
+    $chapterIndicatorLabel=ce('label','chapterIndicatorLabel','label','Chapter: ');
+    $chapterIndicator=ce('label','chapterIndicator','chapterIndicator','None');
+    $readerQAndAOutput=ce("p","readerQAndAOutput","outputArea",'');
+    $buttons='';
+    for($i=1;$i<=25;$i++)
+        {
+            $buttons=$buttons.
+            "
+                <button id='chapterButton$i' class='chapterButton' onclick='handleReaderChapterButton($i)'>$i</button>
+            ";
+        }
+    
+    $page2Contents=
+    "
+        $subHeader
+        $buttons
+        $readerStatus
+        $chapterIndicatorLabel$chapterIndicator
+        $readerQAndAOutput
+    ";
+    $page2Div=ce('div','page2Div','pageDiv',$page2Contents);
+    return "<div class='row'>$pageDiv.$page2Div</div>";
 }
 
 echo knowAlreadyPage();
