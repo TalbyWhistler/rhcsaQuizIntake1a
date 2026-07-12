@@ -50,6 +50,23 @@
             $outputMessage=inputAnswerData($chapter,$questionNumber,$answerLetter,$answer);
             break;
         }
+        case("fetchQuestionsByChapter"):
+            {
+                $params=$jsonInput["params"];
+                $chapter=$params["chapter"];
+                $outputMessage="Fetch questons by chapter control is working chapter $chapter";
+                $outputMessage=fetchQuestionsByChapter($chapter);
+                break;
+            }
+        case("fetchMissing"):
+            {
+                // may not be required
+                $params=$jsonInput["params"];
+                $chapter=$params["chapter"];
+                $outputMessage='Fetch missing control is working chapter is '.$chapter;
+                $outputMessage=fetchMissing($chapter);
+                break;
+            }
     }
 
     echo json_encode($outputMessage);
