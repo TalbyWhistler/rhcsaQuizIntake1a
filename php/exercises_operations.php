@@ -21,12 +21,12 @@ create table exercises(
 function insertMetaValues($figure,$title,$description,$picLocation)
 {
     include 'db_connect.php';
-    $stmt=$conn->prepare("delete from exercisesMeta where figure=?");
+    $stmt=$conn->prepare("delete from exercisesmeta where figure=?");
     $stmt->bind_param("s",$figure);
     $stmt->execute();
     $outputMessage='';
 
-    $stmt=$conn->prepare("insert into exercisesMeta (figure,title,description,optionalPicLocation) values(?,?,?,?)");
+    $stmt=$conn->prepare("insert into exercisesmeta (figure,title,description,optionalPicLocation) values(?,?,?,?)");
     $stmt->bind_param("ssss",$figure,$title,$description,$picLocation);
     if ($stmt->execute())
         {
@@ -42,7 +42,7 @@ function insertMetaValues($figure,$title,$description,$picLocation)
 function fetchRecordsList()
 {
     include 'db_connect.php';
-    $stmt=$conn->prepare("select figure,title from exercisesmeta");
+    $stmt=$conn->prepare("select figure,title from exercisesmeta order by figure asc");
     $stmt->execute();
     $result=$stmt->get_result();
     $outputArray=[];
@@ -64,7 +64,7 @@ function fetchRecordsList()
 function getData($figure)
 {
     include 'db_connect.php';
-    $stmt=$conn->prepare("select * from exercisesMeta where figure=?");
+    $stmt=$conn->prepare("select * from exercisesmeta where figure=?");
     $stmt->bind_param("s",$figure);
     $metadataArray=[];
     $dataArray=[];
