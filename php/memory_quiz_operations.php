@@ -9,7 +9,6 @@ function submitMetadata($figure,$chapter,$description,$value0Label,$value1Label,
 
     $stmt=$conn->prepare("insert into memorymeta(figure,chapter,description,value0Label,value1Label,value2Label,value3Label) values (?,?,?,?,?,?,?)");
     $stmt->bind_param("sisssss",$figure,$chapter,$description,$value0Label,$value1Label,$value2Label,$value3Label);
-   
     $outputMessage='';
     if ($stmt->execute())
         {
