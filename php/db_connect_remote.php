@@ -1,12 +1,16 @@
 <?php 
-     
-
-
 $servername="localhost";
 //$servername="%waters";
-$username = "webUser1";
-$password = "watersWeb";
-$dbName = "redhat0";
+$username = "sa000748591";
+$password = "Sa_19780531";
+$dbName = "sa000748591";
+
+//$servername="localhost";
+//$servername="%waters";
+//$username = "webUser1";
+//$password = "watersWeb";
+//$dbName = "redhat0";
+
 
 $conn = new mysqli($servername,$username,$password,$dbName);
 $returnValue=false;
@@ -25,12 +29,4 @@ return $returnValue;
 
 ?>
 
-
-
-/*
-remote connect 
-
-
-
-
-*/
+?>
