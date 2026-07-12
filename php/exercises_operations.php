@@ -21,7 +21,7 @@ create table exercises(
 function insertMetaValues($figure,$title,$description,$picLocation)
 {
     include 'db_connect.php';
-    $stmt=$conn->prepare("delete from exercisesMeta where figure=?");
+    $stmt=$conn->prepare("delete from exercisesmeta where figure=?");
     $stmt->bind_param("s",$figure);
     $stmt->execute();
     $outputMessage='';
@@ -42,7 +42,7 @@ function insertMetaValues($figure,$title,$description,$picLocation)
 function fetchRecordsList()
 {
     include 'db_connect.php';
-    $stmt=$conn->prepare("select figure,title from exercisesmeta");
+    $stmt=$conn->prepare("select figure,title from exercisesmeta order by figure asc");
     $stmt->execute();
     $result=$stmt->get_result();
     $outputArray=[];
